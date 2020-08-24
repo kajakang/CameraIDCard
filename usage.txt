@@ -1,0 +1,22 @@
+CaptureIDCard.exe
+
+usage:
+CaptureIDCard [IDName] [OutputDir] [CropWidth] [CropHeight]
+
+* Default values are:
+  * ID : 0
+  * OutputDir : ""
+  * CropWidth : 400
+  * CropHeight : 256
+
+* Example:
+
+CaptureIDCard 1938234 c:\Document\Pictures
+
+CaptureIDCard 1938234 c:\Document\Pictures  480 320
+
+* Exit codes:
+  0: Success
+  1 : Exit by "Cancel" button ("Batal")
+  2 : Image save failed
+ -1 : Closed unexpectedly (for example, closing window or terminated by external command)

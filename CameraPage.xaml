@@ -1,0 +1,50 @@
+﻿<Page x:Class="CaptureIDCard.CameraPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+      xmlns:aforge ="clr-namespace:AForge.Controls"
+      xmlns:local="clr-namespace:CaptureIDCard"
+      mc:Ignorable="d" 
+      d:DesignHeight="660" d:DesignWidth="1024"
+      Title="CameraPage" Loaded="CameraPage_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="640"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="660" Margin="0,0,0,0" Width="640">
+            <Label Content="Arahkan kartu menuju garis panduan berwarna merah dibawah ini" HorizontalAlignment="Center" VerticalContentAlignment="Center" Height="80" FontSize="14"/>
+            <wfi:WindowsFormsHost Height="480" Width="640">
+                <aforge:VideoSourcePlayer x:Name="videoSourcePlayer" Dock="Fill" NewFrame="VideoSourcePlayer_NewFrame" KeepAspectRatio="True" />
+            </wfi:WindowsFormsHost>
+            <StackPanel Height="60" Orientation="Horizontal" Margin="0, 20, 0, 20">
+                <Button x:Name="btnCancel" Width="275" Margin="10, 0, 0, 0" Click="btnCancel_Click" Background="Red" Foreground="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="❌" FontFamily="Segoe UI Symbol" FontSize="24"/>
+                        <TextBlock Text="Batal" Margin="10,0,0,0" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnShoot" Width="275" Margin="70, 0, 0, 0" Click="btnShoot_Click" Background="#FF0050A0" Foreground="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="" FontFamily="Segoe UI Symbol" FontSize="24"/>
+                        <TextBlock Text="Foto" Margin="10,0,0,0" FontSize="20"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
